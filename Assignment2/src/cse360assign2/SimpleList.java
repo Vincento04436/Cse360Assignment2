@@ -8,7 +8,7 @@ public class SimpleList {	//The purpose of this class is to be able to create an
 	
 	//Instance Fields
 	private int list[]; // - list : int[]	(from uml diagram)
-	private int count; // - count: int 
+	private int count; // - count: int
 	
 	
 	//constructor
@@ -92,6 +92,42 @@ public class SimpleList {	//The purpose of this class is to be able to create an
 	        }
 	}
 	
+
+    public void append(int num) { //append the parameter to the end of the list, if list is full capacity will increase 50%
+
+        if (count == list.length) {	//Increases capacity when full
+
+             int half = count/2;
+             modify(count + half);
+
+        }
+
+        list[count] = num; //With a given index, adds "num"
+
+        count++;
+
+    }
+
+    public int first() {	//This returns the first element in array
+
+        if (count == 0) {	//This just makes sure an error does not occur if no first element exists
+
+             throw new RuntimeException("Error: first element not found.");
+
+        }
+
+        return list[0]; //Returns first element
+
+    }
+
+
+    public int size() { //Return the current number of possible locations in the list
+    	
+        return list.length;
+
+    }
+	
+	
 	public int count() {
 		return count; //returning the current count
 	}
@@ -129,3 +165,4 @@ public class SimpleList {	//The purpose of this class is to be able to create an
 	
 	
 }
+
